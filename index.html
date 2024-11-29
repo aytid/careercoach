@@ -11,7 +11,8 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            /* background-color: #f4f4f9; */
+            background-color: #ffe000;
             color: #333;
             scroll-behavior: smooth;
         }
@@ -89,16 +90,17 @@
             height: auto;
             transition: transform 0.3s ease; /* Added transition */
         }
-        .image-container img:hover {
-            transform: scale(1.1); /* Added scale effect */
-        }
+        /* .image-container img:hover {
+            transform: scale(1.1); 
+        } */
         section {
             padding: 20px;
             margin: 20px auto;
             max-width: 800px;
             background: #ffe000;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+            box-shadow: 0 2px 4px rgba(239, 230, 230, 0.1);
             scroll-margin-top: 60px;
         }
         h1, h2 {
@@ -145,20 +147,51 @@
             margin-bottom: 8px;
         }
         .contact .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 10px;
-        }
-        .contact .social-icons img {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            transition: transform 0.3s ease; 
-        }
-        .contact .social-icons img:hover {
-            transform: scale(1.1); 
-        }
+    display: flex;
+    flex-direction: column; /* Align icons vertically */
+    justify-content: center;
+    align-items: center; /* Center align icons */
+    gap: 15px; /* Add more space for a cleaner look */
+    margin-top: 20px;
+}
+
+
+.contact .social-icons a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none; /* Remove underlines */
+    color: #333; /* Dark text color */
+    font-size: 14px; /* Adjust text size */
+    font-weight: 600; /* Make text bold */
+    text-align: center;
+}
+
+.contact .social-icons img {
+    width: 50px; /* Increase icon size */
+    height: 50px;
+    border-radius: 50%; /* Make icons circular */
+    /*border: 2px solid #d32f2f;  Add border for emphasis */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.contact .social-icons img:hover {
+    transform: scale(1.1); /* Slight zoom effect */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.contact .social-icons p {
+    margin-top: 5px; /* Add space between icon and text */
+    color: #1a1a1a; /* Dark text for visibility */
+    font-size: 14px; /* Smaller font for the caption */
+    margin-left: 10px;
+    transition: transform 0.3s ease-in-out
+}
+/*.contact .social-icons p:hover{
+    transform: scale(1.1);
+}*/
+
     </style>
     <script>
         function toggleDropdown() {
@@ -189,23 +222,20 @@
 
     <section id="updates">
         <h2>Recent Updates</h2>
-        <button onclick="alert('Key redirection functionality will be added soon!')">
-            Key of Exam on Nov 30, 2024
-        </button>
+        <a href="https://drive.google.com/uc?id=1UypuDP2PzW6z_8VmWnunvllrF8otFPCZ&export=download" download="Answer_Key_Dec_01_Part_1_2024.pdf">
+            <button>
+                Answer Key Dec 01 Part 1, 2024
+            </button>
+        </a>
     </section>
+    
 
     <section id="about" class="about-us">
         <h2>About Us</h2>
         <p>
             Established in 2019, <strong>CareerCoach</strong> quickly rose to prominence in the competitive sector,
             pioneering and setting new standards of excellence. CareerCoach has been the cornerstone of success for
-            aspirants seeking to conquer the competitive landscape of state-level (TSPSC) and national-level SSC,
-            UPSC-level exams.
-        </p>
-        <p>
-            Building on this legacy of triumph, CareerCoach proudly announces the launch of an exclusive UPSC Civil
-            Services course in Warangal, crafted with precision to meet and exceed All India coaching standards. With a
-            blend of expertise, innovation, and personalized support, we are poised to redefine the journey to success.
+            aspirants seeking to conquer the competitive landscape of state-level (TSPSC) and national-level SSC.
         </p>
         <p>
             At CareerCoach, we don't just prepare you for exams; we empower you to excel, lead, and inspire. Our team of
@@ -221,23 +251,22 @@
             <li>Established strategic coaching partnerships through MOUs with MLA constituencies, SC Study Circle, and Minority Study Circle, benefiting thousands of aspirants annually from diverse backgrounds.</li>
         </ul>
         <p>
-            At CareerCoach, the path to UPSC success is not just a possibility—it's a promise waiting to be fulfilled.
             Join us and embark on a journey filled with endless possibilities and boundless opportunities.
         </p>
     </section>
     <section id="social" class="contact">
         <h2>Contact Us</h2>
         <div class="social-icons">
-            <a href="https://www.instagram.com/careercoachtspsc?igsh=NXFmbDAwbng3aW5i" target="_blank">
+            <a href="https://www.instagram.com/career_coach_tspsc?igsh=NXFmbDAwbng3aW5i" target="_blank">
                 <img src="instagram.png" alt="Instagram">
+                <p>Follow us on Instagram</p>
             </a>
             <a href="https://youtube.com/@CAREERCOACHForaCompetitiveEdge?si=7FbAlLUDNXJfhXqu" target="_blank">
                 <img src="youtube.png" alt="YouTube">
-            </a>
-            <a href="https://www.facebook.com/careercoachtspsc?mibextid=LQQJ4d" target="_blank">
-                <img src="facebook.png" alt="Facebook">
+                <p>Watch on YouTube</p>
             </a>
         </div>
     </section>
+    
 </body>
 </html>
