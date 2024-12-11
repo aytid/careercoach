@@ -14,7 +14,7 @@
             padding: 0;
             background-color: #ffe000;
             color: #333;
-            scroll-behavior: smooth;
+            scroll-behavior: smooth; /* Smooth scrolling */
         }
         .navbar {
             background-color: #d32f2f;
@@ -59,6 +59,11 @@
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
+        .nav-links a.active {
+            color: #d32f2f;
+            font-weight: bold;
+            background-color: #ffe4e4;
+        }
         .nav-links a:hover {
             background-color: #f4f4f9;
         }
@@ -78,7 +83,6 @@
             }
             .nav-links a {
                 padding: 5px 10px;
-                border-radius: 5px;
             }
         }
         .image-container {
@@ -104,19 +108,18 @@
             color: #1a1a1a;
         }
         button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-family: 'Playfair Display', serif;
-    color: #fff;
-    background-color: #d32f2f;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin: 2px;
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-family: 'Playfair Display', serif;
+            color: #fff;
+            background-color: #d32f2f;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 2px;
         }
-        
         button:hover {
             background-color: #b71c1c;
             transform: scale(1.05);
@@ -191,6 +194,29 @@
             const navLinks = document.querySelector('.nav-links');
             navLinks.classList.remove('show');
         }
+
+        // Highlight active section
+        document.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            let currentSectionId = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 70; // Adjust based on navbar height
+                const sectionHeight = section.offsetHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    currentSectionId = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === currentSectionId) {
+                    link.classList.add('active');
+                }
+            });
+        });
     </script>
 </head>
 <body>
@@ -211,28 +237,19 @@
     <section id="updates">
         <h2>Recent Updates</h2>
         <a href="https://drive.google.com/file/d/1jMTZhezHibx8mevNjdSjpmoJheIY4nWT/view?usp=sharing" download="CC-PAPER1-KEY">
-            <button>
-                CC PAPER 1 KEY
-            </button>
+            <button>CC PAPER 1 KEY</button>
         </a>
         <a href="https://drive.google.com/file/d/1m61b4GFvKupyuMvUqqY12c0US60wITYH/view?usp=sharing" download="CC-PAPER2-KEY">
-            <button>
-                CC PAPER 2 KEY
-            </button>
+            <button>CC PAPER 2 KEY</button>
         </a>
         <a href="https://drive.google.com/file/d/1-lsHzO1TeptiUu1yyuyGuzpEtPuI5oPh/view?usp=sharing" download="CC-PAPER3-KEY">
-            <button>
-                CC PAPER 3 KEY
-            </button>
+            <button>CC PAPER 3 KEY</button>
         </a>
         <a href="https://drive.google.com/file/d/1i3ZREByEooK2V85aS26-vbzk4iqWb6WF/view?usp=sharing" download="CC-PAPER4-KEY">
-            <button>
-                CC PAPER 4 KEY
-            </button>
+            <button>CC PAPER 4 KEY</button>
         </a>
     </section>
     
-
     <section id="about" class="about-us">
         <h2>About Us</h2>
         <p>
@@ -257,6 +274,7 @@
             Join us and embark on a journey filled with endless possibilities and boundless opportunities.
         </p>
     </section>
+
     <section id="social" class="contact">
         <h2>Contact Us</h2>
         <div class="social-icons">
